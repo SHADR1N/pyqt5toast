@@ -1,6 +1,6 @@
 import math
 import os
-from typing import Optional, Union
+from typing import Optional, Union, Tuple
 from qtpy.QtGui import QGuiApplication, QScreen
 from qtpy.QtCore import Qt, QPropertyAnimation, QPoint, QTimer, QSize, QMargins, QRect, Signal
 from qtpy.QtGui import QPixmap, QIcon, QColor, QFont, QImage, qRgba, QFontMetrics
@@ -2165,7 +2165,7 @@ class Toast(QDialog):
         Toast.__update_currently_showing_position_y()
 
     @staticmethod
-    def getOffset() -> tuple[int, int]:
+    def getOffset() -> Tuple[int, int]:
         """Get the offset for the toasts on the x and y-axis
 
         :return: x and y-axis offset
