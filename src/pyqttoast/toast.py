@@ -1,5 +1,6 @@
 import math
 import os
+from typing import Optional, Union
 from qtpy.QtGui import QGuiApplication, QScreen
 from qtpy.QtCore import Qt, QPropertyAnimation, QPoint, QTimer, QSize, QMargins, QRect, Signal
 from qtpy.QtGui import QPixmap, QIcon, QColor, QFont, QImage, qRgba, QFontMetrics
@@ -921,7 +922,7 @@ class Toast(QDialog):
 
         return self.__icon
 
-    def setIcon(self, icon: QPixmap | ToastIcon):
+    def setIcon(self, icon: Union[QPixmap, ToastIcon]):
         """Set the icon of the toast
 
         :param icon: new icon
@@ -1029,7 +1030,7 @@ class Toast(QDialog):
 
         return self.__close_button_icon
 
-    def setCloseButtonIcon(self, icon: QPixmap | ToastIcon):
+    def setCloseButtonIcon(self, icon: Union[QPixmap, ToastIcon]):
         """Set the icon of the close button
 
         :param icon: new icon
@@ -2204,7 +2205,7 @@ class Toast(QDialog):
         Toast.__update_currently_showing_position_xy()
 
     @staticmethod
-    def getFixedScreen() -> QScreen | None:
+    def getFixedScreen() -> Optional[QScreen]:
         """Get the fixed screen where the toasts are shown
 
         :return: screen if fixed screen is set, else None
@@ -2213,7 +2214,7 @@ class Toast(QDialog):
         return Toast.__fixed_screen
 
     @staticmethod
-    def setFixedScreen(screen: QScreen | None):
+    def setFixedScreen(screen: Optional[QScreen]):
         """Set a fixed screen where the toasts will be shown
 
         :param screen: fixed screen (or None to unset)
